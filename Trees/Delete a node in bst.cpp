@@ -57,8 +57,7 @@ struct Tree* deleteNode(struct Tree* root, int key)
     if (key < root->data) 
         root->left = deleteNode(root->left, key); 
     else if (key > root->data) 
-        root->right = deleteNode(root->right, key); 
-  
+        root->right = deleteNode(root->right, key);  
     else
     { 
         if (root->left == NULL) 

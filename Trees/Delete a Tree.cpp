@@ -12,6 +12,7 @@ void deleteWholeTree(Tree *root)
 {
     if(root!=NULL)
     {
+    	cout<<root<<" ";
         deleteWholeTree(root->left);
         deleteWholeTree(root->right);
         free(root);
@@ -28,7 +29,7 @@ struct Tree *newNode(int item)
 
 struct Tree* insert(struct Tree* node, int data) 
 { 
-    if (node == NULL) 
+    if (node == NULL)
 		return newNode(data); 
   
     if (data < node->data) 

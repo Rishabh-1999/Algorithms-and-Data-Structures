@@ -1,75 +1,70 @@
 #include<iostream>
 #include<map>
-#include<vector>
+#include <cstdlib>
+
 using namespace std;
-struct tree
+
+struct Tree
 {
     int data;
-    tree *left;
-    tree *right;
+    Tree *left;
+    Tree *right;
 };
-void insert(tree* &root,tree *temp)
-    {
-      if(root==NULL)
-      {
-          root=temp;
-          temp->right=NULL;
-          temp->left=NULL;
-          return;
-      }
-         else if(temp->data>root->data)
-          {
-            if(root->right==NULL)
-                root->right=temp;
-            else
-              insert(root->right,temp);
-          }
-          else
-          {
-            if(root->left==NULL)
-                root->left=temp;
-            else
-              insert(root->left,temp);
-          }
-    }
-     void leveltree(struct tree *root,int d,map<int,vector<int> > &m)
+
+struct Tree *newNode(int item) 
+{ 
+    struct Tree *temp =  (struct Tree *)malloc(sizeof(struct Tree)); 
+    temp->data = item; 
+    temp->left = temp->right = NULL; 
+    return temp; 
+}
+
+struct Tree* insert(struct Tree* node, int data) 
+{ 
+    if (node == NULL) 
+		return newNode(data); 
+  
+    if (data < node->data) 
+        node->left  = insert(node->left, data); 
+    else if (data > node->data) 
+        node->right = insert(node->right, data);    
+  
+    return node; 
+} 
+
+void levelTree(struct Tree *root,int d,map<int,int > &m)
 {
     if(root==NULL)
         return;
-     m[d].push_back(root->data);
-    leveltree(root->left,d-1,m);
-    leveltree(root->right,d+1,m);
+    m[d]=root->data;
+    levelTree(root->left,d-1,m);
+    levelTree(root->right,d+1,m);
 }
-void printBottomView(struct tree*  root)
+
+void printBottomView(struct Tree*  root)
 {
-    map<int,vector<int> >m;
+    map<int,int>m;
     int hd=0;
-    leveltree(root,hd,m);
-    map<int,vector<int> >::iterator it;
+    levelTree(root,hd,m);
+    map<int,int >::iterator it;
     for(it=m.begin();it!=m.end();it++)
-    {
-        cout<<it->second[it->second.size()-1]<<" ";
-    }
+        cout<<it->second<<" ";
 }
 
 int main()
 {
-    tree *root=NULL;
-    while(1)
+    Tree *root=NULL;
+    int n,i=0,data=0;
+    cin>>n;
+    while(n > i)
     {
-        int n;
-        cin>>n;
-        if(n==-1)
-            break;
-        else
-        {
-           tree *temp=new tree();
-           temp->data=n;
-            insert(root,temp);
-        }
-    }
+    	cin>>data;
+    	if(root==NULL)
+    		root=insert(root,data);
+    	else
+    		insert(root,data);
+    	i++;
+	}
     printBottomView(root);
+    return 0;
 }
-
-
-

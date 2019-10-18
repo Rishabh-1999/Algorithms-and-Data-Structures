@@ -13,7 +13,6 @@ int findHeight(Tree *root)
 		return 0;
 	int a=findHeight(root->left);
 	int b=findHeight(root->right);
-	//cout<<a<<" "<<b;
 	return ++(a >= b ? a: b);
 }
 
@@ -50,7 +49,7 @@ struct Tree* insert(struct Tree* node, int data)
 
 int max(int a, int b) 
 { 
-  return (a >= b)? a: b; 
+  return (a >= b)? a : b;
 }  
 
 int diameter(struct Tree *root)

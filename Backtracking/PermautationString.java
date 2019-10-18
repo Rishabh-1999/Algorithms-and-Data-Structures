@@ -30,4 +30,4 @@ public class PermautationString
         str=sc.next();
         permautation(str,"");
     }
-} 
+}

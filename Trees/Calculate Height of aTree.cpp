@@ -13,7 +13,6 @@ int findHeight(Tree *root)
 		return 0;
 	int a=findHeight(root->left);
 	int b=findHeight(root->right);
-	//cout<<a<<" "<<b;
 	return ++(a >= b ? a: b);
 }
 

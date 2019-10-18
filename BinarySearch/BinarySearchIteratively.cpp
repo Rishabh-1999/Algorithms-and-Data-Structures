@@ -8,13 +8,9 @@ int find(int ar[],int s,int e,int d)
         if(ar[m]==d)
             return 1;
         else if(ar[m]>d)
-        {
             e=m-1;
-        }
         else
-        {
             s=m+1;
-        }
     }
     return 0;
 }

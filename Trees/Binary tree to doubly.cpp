@@ -1,40 +1,41 @@
 #include<iostream>
+#include <cstdlib>
 using namespace std;
-struct tree
+
+struct Tree
 {
     int data;
-    tree *left;
-    tree *right;
+    Tree *left;
+    Tree *right;
 };
-void insert(tree* &root,tree *temp)
-    {
-      if(root==NULL)
-      {
-          root=temp;
-          temp->right=NULL;
-          temp->left=NULL;
-          return;
-      }
-         else if(temp->data>root->data)
-          {
-            if(root->right==NULL)
-                root->right=temp;
-            else
-              insert(root->right,temp);
-          }
-          else
-          {
-            if(root->left==NULL)
-                root->left=temp;
-            else
-              insert(root->left,temp);
-          }
-    }
- void treetodoubly(tree *root, tree **head)
+
+struct Tree *newNode(int item) 
+{ 
+    struct Tree *temp =  (struct Tree *)malloc(sizeof(struct Tree)); 
+    temp->data = item; 
+    temp->left = temp->right = NULL; 
+    return temp; 
+}
+
+struct Tree* insert(struct Tree* node, int data) 
+{ 
+    if (node == NULL) 
+		return newNode(data); 
+  
+    if (data < node->data) 
+        node->left  = insert(node->left, data); 
+    else if (data > node->data) 
+        node->right = insert(node->right, data);    
+  
+    return node; 
+} 
+
+void Treetodoubly(Tree *root, Tree **head)
 {
-    if (root == NULL) return;
-    static tree* prev = NULL;
-    treetodoubly(root->left, head);
+    if (root == NULL)
+		return;
+    static Tree* prev = NULL;
+    Treetodoubly(root->left, head);
     if (prev == NULL)
         *head = root;
     else
@@ -43,37 +44,36 @@ void insert(tree* &root,tree *temp)
         prev->right = root;
     }
     prev = root;
-    treetodoubly(root->right, head);
+    Treetodoubly(root->right, head);
 }
 
-void printdoubly(struct tree *head)
+void printdoubly(struct Tree *head)
 {
     while(head!=NULL)
     {
         cout<<head->data<<" ";
         head=head->right;
+        
     }
 }
+
 int main()
 {
-    tree *root=NULL;
-    while(1)
+    Tree *root=NULL;
+    int n,i=0,data=0;
+    cin>>n;
+    while(n > i)
     {
-        int n;
-        cin>>n;
-        if(n==-1)
-            break;
-        else
-        {
-           tree *temp=new tree();
-           temp->data=n;
-            insert(root,temp);
-        }
-    }
-    struct tree *head=NULL;
-    treetodoubly(root,&head);
+    	cin>>data;
+    	if(root==NULL)
+    	root=insert(root,data);
+    	else
+    	insert(root,data);
+    	i++;
+	}
+    
+    struct Tree *head=NULL;
+    Treetodoubly(root,&head);
     printdoubly(head);
+    return 0;
 }
-
-
-
