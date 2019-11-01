@@ -1,6 +1,8 @@
 #include<iostream>
 #include<algorithm>
+
 using namespace std;
+
 struct Tree
 {
     struct Tree *left=NULL,*right=NULL;

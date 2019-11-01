@@ -34,15 +34,15 @@ void findMirror(struct Node* root)
     q.push(root);
     while(!q.empty())
     {
-    struct Node *temp=q.front();
-    q.pop();
-    struct Node *temp1=temp->right;
-    temp->right=temp->left;
-    temp->left=temp1;
-    if(temp->left)
-      q.push(temp->left);
-    if(temp->right)
-      q.push(temp->right);
+	    struct Node *temp=q.front();
+	    q.pop();
+	    struct Node *temp1=temp->right;
+	    temp->right=temp->left;
+	    temp->left=temp1;
+	    if(temp->left)
+	      q.push(temp->left);
+	    if(temp->right)
+	      q.push(temp->right);
     }
 }
 int main()

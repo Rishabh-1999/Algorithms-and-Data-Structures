@@ -20,7 +20,7 @@ void print(struct node *head)
 
 struct Node* findMergePoint(struct Node* head1, struct Node* head2) 
 {
-	struct Node *h1=head1,*h2=head2,*r=NULL,temp;
+  struct Node *h1=head1,*h2=head2,*r=NULL,temp;
   while(h1!=NULL)
   {
     h2=head2;
@@ -58,4 +58,5 @@ int main()
 		}
 	}
 	print(head);
+	return 0;
 }

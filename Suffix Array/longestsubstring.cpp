@@ -39,7 +39,7 @@ int main()
         count=0;
         char temp[100];
         int k1=-1;
-        while(x<strlen(store[i])&&x<strlen(store[i+1]))
+        while(x<strlen(store[i]) && x<strlen(store[i+1]))
         {
             if(store[i][x]!=store[i+1][x])
                 break;
@@ -62,6 +62,6 @@ int main()
             }
         }
     }
-    cout<<result;;
-    return 
+    cout<<result;
+    return 0;
 }

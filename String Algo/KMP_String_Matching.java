@@ -63,5 +63,5 @@ class KMP_String_Matching {
         System.out.print("Ener Pattern : ");
         String pat = sc.nextLine();
         new KMP_String_Matching().KMPSearch(pat, txt); 
-    } 
-} 
+    }
+}

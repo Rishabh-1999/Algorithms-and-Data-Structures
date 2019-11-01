@@ -26,12 +26,14 @@ public class HeapInsertAndDeletion
             // Recursively heapify the affected sub-tree 
             heapify(arr, n, largest); 
         } 
-    } 
+    }
+     
     void printArray(int arr[])
     {
         for(int i=0;i<arr.length;i++)
         System.out.print(arr[i]+" ");
     }
+
     void insertheapify(int ar[],int i,int j)
     {
         if(i<0)
@@ -46,17 +48,20 @@ public class HeapInsertAndDeletion
             insertheapify(ar,i-1,i);
         }
     }
+
     void insert(int ar[],int n,int c)
     {
         ar[n++]=c;
         insertheapify(ar,n/2,n-1);
     }
+
     void deletemax(int ar[],int n)
     {
         ar[0]=ar[n-1];
         n--;
         heapify(ar,n,0);
     }
+
     public static void main(String[] args) {
         System.out.println("Enter no of elements : ");
         Scanner sc =new Scanner(System.in);

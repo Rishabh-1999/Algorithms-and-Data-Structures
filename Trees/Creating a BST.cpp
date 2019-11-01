@@ -20,7 +20,7 @@ void printByRecusion(Tree *root)
 
 struct Tree *newNode(int item) 
 { 
-    struct Tree *temp =  (struct Tree *)malloc(sizeof(struct Tree)); 
+    struct Tree *temp = (struct Tree *)malloc(sizeof(struct Tree)); 
     temp->data = item; 
     temp->left = temp->right = NULL; 
     return temp; 
