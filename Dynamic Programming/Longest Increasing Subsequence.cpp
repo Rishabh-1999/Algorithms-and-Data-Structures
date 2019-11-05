@@ -1,7 +1,6 @@
 #include<bits/stdc++.h> 
 using namespace std;
 
-
 int solvelis(int arr[],int n)
 {
 	int lis[n]; 
