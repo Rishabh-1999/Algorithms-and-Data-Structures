@@ -11,7 +11,8 @@ struct node
 int nthNodeFromLast(struct node *head,int n)
 {
 	if(head==NULL)
-	return -1;
+		return -1;
+	
 	struct node *temp = head;
 	int len = 0;
 	while(temp != NULL)
@@ -21,8 +22,7 @@ int nthNodeFromLast(struct node *head,int n)
 	}
 
 	if(n > len)
-	return -1;
-
+		return -1;
 	n=len-n;
 	temp = head;
 	int k=0;
