@@ -1,5 +1,7 @@
 #include<iostream>
+
 using namespace std;
+
 int rotation(int ar[],int n)
 {
     int min1=ar[0],index=0;
@@ -13,6 +15,7 @@ int rotation(int ar[],int n)
     }
     return index;
 }
+
 int main()
 {
     int n;

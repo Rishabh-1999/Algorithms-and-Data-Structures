@@ -24,4 +24,5 @@ int main()
     int d;
     cin>>d;
     cout<<find(ar,0,n-1,d);
+    return 0;
 }

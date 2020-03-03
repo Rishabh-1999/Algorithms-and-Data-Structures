@@ -1,5 +1,8 @@
 #include<iostream>
 #include<algorithm>
+
+using namespace std;
+
 int countpair(int ar[],int s,int e,int sum)
 {
     int c=0;
@@ -31,7 +34,7 @@ int countpair(int ar[],int s,int e,int sum)
     }
     return c;
 }
-using namespace std;
+
 int main()
 {
     int n;
